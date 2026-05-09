@@ -26,7 +26,7 @@ const inquiryLimiter = rateLimit({
 });
 
 // Routes
-app.use('/api/inquiries', inquiryLimiter, require('./routes/inquiryRoutes'));
+app.use('/api/inquiries', require('./routes/inquiryRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/upload', require('./routes/uploadRoutes'));
 

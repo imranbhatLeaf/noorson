@@ -5,6 +5,7 @@ import { inquiryAPI } from '../services/api'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import goatImg from '../assets/images/goat.jpeg'
+import connectionImg from '../assets/images/c5.jpeg'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -170,9 +171,9 @@ const Connections = () => {
           {/* Image */}
           <div ref={imgColRef} className="w-full md:w-1/2 relative opacity-0 pb-16 md:pb-12">
             <img
-              src="/connection.png"
+              src={connectionImg}
               alt="Kashmir Landscape"
-              className="w-full h-auto object-cover shadow-xl"
+              className="w-full h-[400px] md:h-[550px] object-cover grayscale"
             />
             {/* Goat image overlay */}
             <motion.div

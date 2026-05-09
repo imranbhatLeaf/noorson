@@ -1,6 +1,18 @@
 const Inquiry = require('../models/Inquiry');
 const { sendInquiryEmail } = require('../services/emailService');
 
+// @desc    Get all inquiries
+// @route   GET /api/inquiries
+// @access  Public (add auth later)
+const getInquiries = async (req, res) => {
+  try {
+    const inquiries = await Inquiry.find().sort({ createdAt: -1 });
+    res.status(200).json({ success: true, count: inquiries.length, data: inquiries });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Server Error', error: error.message });
+  }
+};
+
 // @desc    Create new inquiry
 // @route   POST /api/inquiries
 // @access  Public
@@ -36,4 +48,4 @@ const createInquiry = async (req, res) => {
   }
 };
 
-module.exports = { createInquiry };
+module.exports = { createInquiry, getInquiries };
